@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import MainBar from './components/MainBar';
+import TopBanner from './components/TopBanner';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainBar/>
+      <TopBanner/>
+      <div className='mainContent' style={{
+        backgroundColor: "rgba(0,0,0,0.175)",
+        height: "45rem"
+        }}>
+        <h3>
+          content
+        </h3>
+      </div>
+      <div className='Footer' style={{
+        height: "5rem"
+      }}>
+        <h2>Footer</h2>
+      </div>
     </div>
   );
 }
