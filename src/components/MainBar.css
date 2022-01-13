@@ -1,0 +1,21 @@
+.MainBar_hamberger{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+
+  .icon_new{
+    font-family: 'icomoon' !important;
+    speak: none; 
+  }
+  .icon_new::before{
+    content: "\e992";
+  }
