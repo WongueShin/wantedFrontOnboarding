@@ -1,44 +1,10 @@
-.MainBar_margin{
-  position: relative;
-  max-width: 1060px;
-}
-@media (max-width: 767px){
-  .MainBar_margin{
-    height: 110px;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px){
-  .MainBar_margin{
-    height: 110px;
-    margin: 0 auto;
-    width: 90%;
-  }
-}
-@media (min-width: 992px) and (max-width: 1199px){
-  .MainBar_margin{
-    margin: 0 auto;
-    height: 50px;
-    width: 90%;
-  }
-}
-@media (min-width: 1200px){
-  .MainBar_margin{
-    margin: 0 auto;
-    height: 50px;
-    width: 87.72%;
-  }
-}
-
-.MainBar_nav_top{
-  height: 60px;
-  width: 100%;
-  padding: 15px 20px;
-}
 .MainBar_nav_topLogo{
   display: flex;
 }
 .MainBar_hamberger{
     margin: 0;
+    margin-top: -2px;
+    margin-right: 15px;
     padding: 0;
     border: 0;
     background: none;
@@ -62,15 +28,170 @@
 
   .SignUpButton{
     color: #36f;
-    background: none;
     font-size: 14px;
     line-height: 32px;
+    height: 34px;
     border: 1px solid #36f;
     border-radius: 17px;
     padding: 0 14px;
+    margin: 0;
+    background: none;
   }
   @media( min-width: 990px){
     .SignUpButton{
       display: none;
     }
   }
+
+.MainBar_margin{
+  position: relative;
+  max-width: 1060px;
+}
+.MainBar_nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.MainBar_nav_top{
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  align-items: center;
+}
+ul{
+  list-style-type: none;
+}
+.MainBar_Menu{
+  height: inherit;
+  text-align: center;
+  margin: 0;
+  display: block;
+  padding-left: 0 ;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+.menu_classname{
+  height: inherit;
+  display: inline-block;
+}
+.menu_classname a>span{
+  position: absolute;
+  top: 10px;
+  right: -7px;
+  pointer-events: none;
+}
+.menu_classname a{
+  position: relative;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  padding: 15px;
+  display: inline-block;
+}
+.menu_classname a>em{
+  position: absolute;
+  top: 10px;
+  right: -5px;
+  pointer-events: none;
+  font-style: normal;
+}
+.HomeButton{
+  box-shadow: inset 0 -2px #258bf7;
+}
+.MainBar_Menu a{
+  padding-left: 20px;
+  position: relative;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  padding: 15px;
+  display: inline-block;
+}
+.MainBar_Menu li::after{
+  height: 100%;
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px){
+  .MainBar_margin{
+    height: 110px;
+  }
+  .MainBar_nav_top{
+    height: 60px;
+    width: 100%;
+    padding: 15px 20px;
+  }
+  .MainBar_Menu{
+    text-align: left;
+    padding-left: 0;
+    margin: 0;
+  }
+  .menu_classname.smMoreVisible{
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px){
+  .MainBar_margin{
+    height: 110px;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .MainBar_nav_top{
+    padding: 15px 0;
+    height: 60px;
+    width: 100%;
+  }
+  .MainBar_Menu{
+    justify-content: flex-start;
+    margin-right: 30px;
+    padding-left: 0;
+    margin: 0;
+  }
+  .menu_classname a{
+    padding: 11px 10px 19px;
+    font-size: 13px;
+  }
+  .menu_classname a>em{
+    top: 5px;
+    right: -7px;
+  }
+  
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  .MainBar_margin{
+    margin: 0 auto;
+    height: 50px;
+    width: 90%;
+  }
+  .MainBar_Menu{
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 1200px){
+  .MainBar_margin{
+    margin: 0 auto;
+    height: 50px;
+    width: 87.72%;
+  }
+}
+@media (min-width: 768px){
+  .HomeButton{
+    display: none;
+  }
+}
+
+
