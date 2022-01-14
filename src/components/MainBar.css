@@ -1,3 +1,42 @@
+.MainBar_margin{
+  position: relative;
+  max-width: 1060px;
+}
+@media (max-width: 767px){
+  .MainBar_margin{
+    height: 110px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px){
+  .MainBar_margin{
+    height: 110px;
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  .MainBar_margin{
+    margin: 0 auto;
+    height: 50px;
+    width: 90%;
+  }
+}
+@media (min-width: 1200px){
+  .MainBar_margin{
+    margin: 0 auto;
+    height: 50px;
+    width: 87.72%;
+  }
+}
+
+.MainBar_nav_top{
+  height: 60px;
+  width: 100%;
+  padding: 15px 20px;
+}
+.MainBar_nav_topLogo{
+  display: flex;
+}
 .MainBar_hamberger{
     margin: 0;
     padding: 0;
@@ -7,12 +46,7 @@
 
 @font-face {
     font-family: 'icomoon';
-    src:  url('https://d1azc1qln24ryf.cloudfront.net/78252/wantedicon/icomoon.eot?8et930');
-    src:  url('https://d1azc1qln24ryf.cloudfront.net/78252/wantedicon/icomoon.eot?8et930#iefix') format('embedded-opentype'),
-      url('https://d1azc1qln24ryf.cloudfront.net/78252/wantedicon/icomoon.woff2?8et930') format('woff2'),
-      url('https://d1azc1qln24ryf.cloudfront.net/78252/wantedicon/icomoon.ttf?8et930') format('truetype'),
-      url('https://d1azc1qln24ryf.cloudfront.net/78252/wantedicon/icomoon.woff?8et930') format('woff'),
-      url('https://d1azc1qln24ryf.cloudfront.net/78252/wantedicon/icomoon.svg?8et930#icomoon') format('svg');
+    src:  url('../font/icomoon.ttf');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -24,4 +58,19 @@
   }
   .icon_new::before{
     content: "\e992";
+  }
+
+  .SignUpButton{
+    color: #36f;
+    background: none;
+    font-size: 14px;
+    line-height: 32px;
+    border: 1px solid #36f;
+    border-radius: 17px;
+    padding: 0 14px;
+  }
+  @media( min-width: 990px){
+    .SignUpButton{
+      display: none;
+    }
   }
