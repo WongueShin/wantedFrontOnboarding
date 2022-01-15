@@ -1,9 +1,15 @@
+.MainBar_className{
+  width: 100%;
+  padding-right: initial;
+  background-color: #fff;
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+  z-index: 100;
+}
 .MainBar_nav_topLogo{
   display: flex;
 }
 .MainBar_hamberger{
     margin: 0;
-    margin-top: -2px;
     margin-right: 15px;
     padding: 0;
     border: 0;
@@ -27,6 +33,7 @@
   }
 
   .SignUpButton{
+    display: none;
     color: #36f;
     font-size: 14px;
     line-height: 32px;
@@ -37,12 +44,6 @@
     margin: 0;
     background: none;
   }
-  @media( min-width: 990px){
-    .SignUpButton{
-      display: none;
-    }
-  }
-
 .MainBar_margin{
   position: relative;
   max-width: 1060px;
@@ -106,6 +107,10 @@ ul{
 .HomeButton{
   box-shadow: inset 0 -2px #258bf7;
 }
+.MainBar_Menu{
+  padding: 0;
+  margin: 0;
+}
 .MainBar_Menu a{
   padding-left: 20px;
   position: relative;
@@ -123,15 +128,85 @@ ul{
   vertical-align: middle;
   box-sizing: border-box;
 }
+.Aside_className{
+  height: 100%;
+  padding: 10px 0;
+}
+.Aside_className>ul{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.Aside_className>ul li{
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.Aside_className>ul li a{
+  display: inline-block;
+  vertical-align: bottom;
+  line-height: 32px;
+}
+.Aside_className>ul li .searchButton{
+  position: relative;
+  margin-top: 5px;
+}
+.Aside_className>ul li>* {
+  height: 100%;
+  padding: 0 5px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+  line-height: 1;
+}
+.Aside_className>ul li> button{
+  border: 0;
+  background: none;
+}
+.Aside_className>ul li .signUpButton{
+  margin-right: 6px;
+}
+.Aside_className>ul li .dashboardButton{
+  font-size: 13px;
+  color: #666;
+  line-height: 30px;
+  height: 30px;
+  border: 1px solid #e1e2e3;
+  border-radius: 15px;
+  padding: 0 10px;
+  margin-left: 15px;
+  font-weight: 400;
+}
+.Aside_className>ul .leftDivision{
+  display: inline-flex;
+}
+.Aside_className>ul .leftDivision::before{
+  display: block;
+  content: "";
+  width: 1px;
+  height: 10px;
+  background-color: #e1e2e3;
+  margin: auto 10px;
+}
+.Aside_className>ul li .menuButton{
+  margin-left:  10px;
+  margin-right: 10px;
+}
 
 @media (max-width: 767px){
   .MainBar_margin{
     height: 110px;
   }
   .MainBar_nav_top{
-    height: 60px;
     width: 100%;
     padding: 15px 20px;
+  }
+  .SignUpButton{
+    display: inline-block;
   }
   .MainBar_Menu{
     text-align: left;
@@ -139,6 +214,21 @@ ul{
     margin: 0;
   }
   .menu_classname.smMoreVisible{
+    display: none;
+  }
+  .Aside_className{
+    padding: 14px 0;
+  }
+  .Aside_className>ul{
+    margin-top: -5px;
+  }
+  .Aside_className>ul li .searchButton{
+    margin: 0;
+  }
+  .Aside_className>ul li .signUpButton{
+    display: none;
+  }
+  .Aside_className>ul .mdMoreVisible{
     display: none;
   }
 }
@@ -150,8 +240,10 @@ ul{
   }
   .MainBar_nav_top{
     padding: 15px 0;
-    height: 60px;
     width: 100%;
+  }
+  .SignUpButton{
+    display: inline-block;
   }
   .MainBar_Menu{
     justify-content: flex-start;
@@ -167,7 +259,15 @@ ul{
     top: 5px;
     right: -7px;
   }
-  
+  .Aside_className>ul li .searchButton{
+    margin: 0;
+  }
+  .Aside_className>ul li .signUpButton{
+    display: none;
+  }
+  .Aside_className>ul .mdMoreVisible{
+    display: none;
+  }
 }
 @media (min-width: 992px) and (max-width: 1199px){
   .MainBar_margin{
@@ -180,12 +280,31 @@ ul{
     flex: 1;
     justify-content: space-evenly;
   }
+  .Aside_className>ul li .signUpButton{
+    margin-right: 0;
+    padding: 0 3px;
+  }
+  .Aside_visibleMenu{
+    display: none !important;
+  }
+  .MainBar_Menu{
+    display: flex;
+    flex: 1 1;
+    justify-content: space-evenly;
+  }
+  .menu_classname a {
+    font-size: 13px;
+    padding: 15px 0;
+  }
 }
 @media (min-width: 1200px){
   .MainBar_margin{
     margin: 0 auto;
     height: 50px;
     width: 87.72%;
+  }
+  .Aside_visibleMenu{
+    display: none !important;
   }
 }
 @media (min-width: 768px){
