@@ -6,15 +6,19 @@ function App() {
   return (
     <div className="App">
       <MainBar/>
-      <TopBanner/>
-      <div className='mainContent' style={{
-        backgroundColor: "rgba(0,0,0,0.175)",
-        height: "45rem"
+      <main className='Main'>
+        <TopBanner/>
+        <div 
+          className='mainContent' 
+          style={{
+            backgroundColor: "rgba(0,0,0,0.175)",
+            height: "45rem"
         }}>
-        <h3>
-          content
-        </h3>
-      </div>
+          <h3>
+            content
+          </h3>
+        </div>
+      </main>
       <div className='Footer' style={{
         height: "5rem"
       }}>
