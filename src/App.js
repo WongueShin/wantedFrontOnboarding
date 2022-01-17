@@ -1,13 +1,17 @@
+import { useRef, useState } from 'react';
 import './App.css';
 import MainBar from './components/MainBar';
 import TopBanner from './components/TopBanner';
 
 function App() {
+  const [cnt, setCnt] = useState(0);
+  const containerRef = useRef();
+
   return (
     <div className="App">
       <MainBar/>
       <main className='Main'>
-        <TopBanner/>
+        <TopBanner state={[cnt, setCnt]} refer={containerRef}/>
         <div 
           className='mainContent' 
           style={{
