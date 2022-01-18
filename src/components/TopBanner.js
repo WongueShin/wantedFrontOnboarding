@@ -129,17 +129,16 @@ function Banners(props){
 
 
 function TopBanner(props) {
-    const [cnt, setCnt] = props.state;
+    const [cnt, setCnt, touchPosion ,setTouchPosition] = props.state;
     const containerRef = props.refer;
     const contentList = require('./bannerContent.json').content;
-    
     useEffect(() => {
         const containerWidth = window.getComputedStyle(containerRef.current.querySelector('.container')).width.slice(0,-2);
         containerRef.current.style.transition = 'all 0.35s ease-in-out 0s';
         containerRef.current.style.transform = `translateX(calc(-${containerWidth}* ${cnt + 1}px - (${containerWidth}px - (100vw - ${containerWidth}px)/2)))`;
     }, [cnt])
 
-    const NextSlide = async() => {
+    const NextSlide = () => {
         const containerWidth = window.getComputedStyle(containerRef.current.querySelector('.container')).width.slice(0,-2);
        
         if(cnt >= contentList.length - 1){
@@ -164,8 +163,26 @@ function TopBanner(props) {
         setCnt(cnt - 1);
     }
 
+    const touchEnd = (e) => {
+        const distanceX = Math.abs(touchPosion.x - e.changedTouches[0].pageX);
+        const distanceY = Math.abs(touchPosion.y - e.changedTouches[0].pageY);
+        console.log(distanceX, distanceY);
+        if(distanceX > 50){
+            if(e.changedTouches[0].pageX - touchPosion.x > 0){
+                PrevSlide();
+                return
+            }
+            NextSlide();
+            return
+        }
+        return
+    }
     return(
-        <div className="TopBanner">
+        <div className="TopBanner" onTouchStart={(e) => {setTouchPosition({
+            x: e.changedTouches[0].pageX,
+            y: e.changedTouches[0].pageY
+        })}}
+        onTouchEnd={touchEnd}>
             <Banners content = {contentList} refs = {containerRef}/>
             <button onClick={NextSlide} className="TopBanner_next_Arrow TopBanner_Arrow">
                 <span className="SvgIcon_SvgIcon__root__8vwon" >

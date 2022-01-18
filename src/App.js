@@ -5,13 +5,14 @@ import TopBanner from './components/TopBanner';
 
 function App() {
   const [cnt, setCnt] = useState(0);
+  const [touchPosition, setTouchPosition] = useState({x:0, y:0})
   const containerRef = useRef();
 
   return (
     <div className="App">
       <MainBar/>
       <main className='Main'>
-        <TopBanner state={[cnt, setCnt]} refer={containerRef}/>
+        <TopBanner state={[cnt, setCnt, touchPosition, setTouchPosition]} refer={containerRef}/>
         <div 
           className='mainContent' 
           style={{
