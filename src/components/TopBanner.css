@@ -20,12 +20,13 @@
     padding-top: 10px;
 }
 .container{
+    box-sizing: border-box;
+    padding: 0 15px;
     width: 75vw;
     outline: none;
     position: relative;
     display: block;
     float: left;
-    height: 100%;
     min-height: 1px;
     overflow: hidden;
 }
@@ -35,6 +36,7 @@
     padding: 0;
     border: 0;
     overflow: hidden;
+    pointer-events: none;
 }
 .bannerImg{
     width: 100%;
@@ -47,6 +49,7 @@
     -webkit-animation: none;
     animation: none;
     text-align: center;
+    height: 100%;
     margin: 0;
     padding: 0;
     border: 0;

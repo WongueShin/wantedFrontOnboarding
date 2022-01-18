@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./TopBanner.css"
 
 function Banners(props){
@@ -53,7 +53,7 @@ function Banners(props){
                             </div>
                     </div>        
                     {contentList.map((content, index)=>
-                        <div key={index} className="container">
+                        <div key={index} className={"container"}>
                             <div>
                                 <div className="imgDiv">
                                 <img className="bannerImg" src={content.imgpath}/>
@@ -132,16 +132,40 @@ function TopBanner(props) {
     const [cnt, setCnt, touchPosion ,setTouchPosition] = props.state;
     const containerRef = props.refer;
     const contentList = require('./bannerContent.json').content;
+    let timer = 0;
+    function useInterval(callback, delay) {
+        const savedCallback = useRef();
+      
+        useEffect(() => {
+          savedCallback.current = callback;
+        }, [callback]);
+      
+        useEffect(() => {
+          function tick() {
+            savedCallback.current();
+          }
+          if (delay !== null) {
+            let id = setInterval(tick, delay);
+            return () => clearInterval(id);
+          }
+        }, [delay]);
+      }
+
     useEffect(() => {
         const containerWidth = window.getComputedStyle(containerRef.current.querySelector('.container')).width.slice(0,-2);
         containerRef.current.style.transition = 'all 0.35s ease-in-out 0s';
         containerRef.current.style.transform = `translateX(calc(-${containerWidth}* ${cnt + 1}px - (${containerWidth}px - (100vw - ${containerWidth}px)/2)))`;
     }, [cnt])
+    
+    const [count, setCount] = useState(0);
+    useInterval(() => {
+        NextSlide();
+        setCount(count + 1);
+      }, 4000);
 
     const NextSlide = () => {
-        const containerWidth = window.getComputedStyle(containerRef.current.querySelector('.container')).width.slice(0,-2);
-       
-        if(cnt >= contentList.length - 1){
+        const containerWidth = window.getComputedStyle(containerRef.current.querySelector('.container')).width.slice(0,-2);  
+        if(cnt === contentList.length - 1){
             containerRef.current.style.transition = 'none';
             containerRef.current.style.transform =`translateX(calc(-${containerWidth}* ${0}px - (${containerWidth}px - (100vw - ${containerWidth}px)/2)))`
             setCnt(0);
@@ -152,7 +176,6 @@ function TopBanner(props) {
     }
 
     const PrevSlide = () => {
-
         if (cnt === 0){
             const containerWidth = window.getComputedStyle(containerRef.current.querySelector('.container')).width.slice(0,-2);
             containerRef.current.style.transition = 'none';
@@ -165,8 +188,6 @@ function TopBanner(props) {
 
     const touchEnd = (e) => {
         const distanceX = Math.abs(touchPosion.x - e.changedTouches[0].pageX);
-        const distanceY = Math.abs(touchPosion.y - e.changedTouches[0].pageY);
-        console.log(distanceX, distanceY);
         if(distanceX > 50){
             if(e.changedTouches[0].pageX - touchPosion.x > 0){
                 PrevSlide();
@@ -177,12 +198,30 @@ function TopBanner(props) {
         }
         return
     }
+    const mouseEnd = (e) => {
+        const distanceX = Math.abs(touchPosion.x - e.pageX);
+        console.log(touchPosion.x, e.pageX);
+        if(distanceX > 50){
+            if((touchPosion.x - e.pageX) > 0){
+                NextSlide();
+                return
+            }
+            PrevSlide();
+            return
+        }
+        return
+    }
     return(
-        <div className="TopBanner" onTouchStart={(e) => {setTouchPosition({
+        <div className="TopBanner" 
+        onMouseDown={(e) => {setTouchPosition({
+            x: e.pageX,
+        })}} 
+        onTouchStart={(e) => {setTouchPosition({
             x: e.changedTouches[0].pageX,
             y: e.changedTouches[0].pageY
         })}}
-        onTouchEnd={touchEnd}>
+        onTouchEnd={touchEnd}
+        onMouseUp={mouseEnd}>
             <Banners content = {contentList} refs = {containerRef}/>
             <button onClick={NextSlide} className="TopBanner_next_Arrow TopBanner_Arrow">
                 <span className="SvgIcon_SvgIcon__root__8vwon" >
