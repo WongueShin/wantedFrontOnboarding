@@ -6,9 +6,31 @@ function Banners(props){
     const containerRef = props.refs;
     return(
         <div className="not-slick-slider">
-            <div className="not-slick-list" style={{"padding": "0px 40px"}}>
+            <div className="not-slick-list" >
                 <div className="track" ref={containerRef}>
-                    <div key={0} className="container last-idx">
+                <div key={-2} className="container last-idx">
+                            <div>
+                                <div className="imgDiv">
+                                <img className="bannerImg" src={contentList[contentList.length - 2].imgpath}/>
+                                </div>
+                                <div className='Information'>
+                                    <h2>{contentList[contentList.length - 2].h2}</h2>
+                                    <h3>{contentList[contentList.length - 2].h3}</h3>
+                                    <a className='button_Information'>
+                                        <span className='button_span'>바로가기
+                                        <span className="Button_Button__endIcon__MpDfc">
+                                            <span className='SvgIcon_SvgIcon__root__8vwon'>
+                                                <svg className='SvgIcon_SvgIcon__root__svg__DKYBi' viewBox='0 0 18 18'>
+                                                    <path d='m11.955 9-5.978 5.977a.563.563 0 0 0 .796.796l6.375-6.375a.563.563 0 0 0 0-.796L6.773 2.227a.562.562 0 1 0-.796.796L11.955 9z'/>
+                                                </svg>
+                                            </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
+                    <div key={-1} className="container last-idx">
                             <div>
                                 <div className="imgDiv">
                                 <img className="bannerImg" src={contentList[contentList.length - 1].imgpath}/>
@@ -31,7 +53,7 @@ function Banners(props){
                             </div>
                     </div>        
                     {contentList.map((content, index)=>
-                        <div key={index + 1} className="container">
+                        <div key={index} className="container">
                             <div>
                                 <div className="imgDiv">
                                 <img className="bannerImg" src={content.imgpath}/>
@@ -54,7 +76,7 @@ function Banners(props){
                             </div>
                         </div>
                     )}
-                    <div key={-1} className="container first-idx">
+                    <div key={contentList.length} className="container first-idx">
                             <div>
                                 <div className="imgDiv">
                                 <img className="bannerImg" src={contentList[0].imgpath}/>
@@ -75,7 +97,29 @@ function Banners(props){
                                     </a>
                                 </div>
                             </div>
-                    </div>        
+                    </div>
+                    <div key={contentList.length + 1} className="container first-idx">
+                            <div>
+                                <div className="imgDiv">
+                                <img className="bannerImg" src={contentList[1].imgpath}/>
+                                </div>
+                                <div className='Information'>
+                                    <h2>{contentList[1].h2}</h2>
+                                    <h3>{contentList[1].h3}</h3>
+                                    <a className='button_Information'>
+                                        <span className='button_span'>바로가기
+                                        <span className="Button_Button__endIcon__MpDfc">
+                                            <span className='SvgIcon_SvgIcon__root__8vwon'>
+                                                <svg className='SvgIcon_SvgIcon__root__svg__DKYBi' viewBox='0 0 18 18'>
+                                                    <path d='m11.955 9-5.978 5.977a.563.563 0 0 0 .796.796l6.375-6.375a.563.563 0 0 0 0-.796L6.773 2.227a.562.562 0 1 0-.796.796L11.955 9z'/>
+                                                </svg>
+                                            </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                    </div>           
                 </div>
             </div>
         </div>
@@ -90,12 +134,17 @@ function TopBanner(props) {
     const contentList = require('./bannerContent.json').content;
     
     useEffect(() => {
+        const containerWidth = window.getComputedStyle(containerRef.current.querySelector('.container')).width.slice(0,-2);
         containerRef.current.style.transition = 'all 0.35s ease-in-out 0s';
-        containerRef.current.style.transform = `translateX(calc(${-63.5 -cnt*75}em - ${cnt*24}px))`;
+        containerRef.current.style.transform = `translateX(calc(-${containerWidth}* ${cnt + 1}px - (${containerWidth}px - (100vw - ${containerWidth}px)/2)))`;
     }, [cnt])
 
-    const NextSlide = () => {
+    const NextSlide = async() => {
+        const containerWidth = window.getComputedStyle(containerRef.current.querySelector('.container')).width.slice(0,-2);
+       
         if(cnt >= contentList.length - 1){
+            containerRef.current.style.transition = 'none';
+            containerRef.current.style.transform =`translateX(calc(-${containerWidth}* ${0}px - (${containerWidth}px - (100vw - ${containerWidth}px)/2)))`
             setCnt(0);
             return
         }
@@ -104,7 +153,11 @@ function TopBanner(props) {
     }
 
     const PrevSlide = () => {
+
         if (cnt === 0){
+            const containerWidth = window.getComputedStyle(containerRef.current.querySelector('.container')).width.slice(0,-2);
+            containerRef.current.style.transition = 'none';
+            containerRef.current.style.transform =`translateX(calc(-${containerWidth}* ${contentList.length + 1}px - (${containerWidth}px - (100vw - ${containerWidth}px)/2)))`
             setCnt(contentList.length - 1);
             return
         }

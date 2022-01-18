@@ -18,9 +18,9 @@
     width: 37800px;
     height: 20em;
     padding-top: 10px;
-    transform: translateX(-63.5em);
 }
 .container{
+    width: 75vw;
     outline: none;
     position: relative;
     display: block;
@@ -30,7 +30,6 @@
     overflow: hidden;
 }
 .imgDiv{
-    width: 75em;
     filter: brightness(100%);
     margin: 0;
     padding: 0;
@@ -38,6 +37,7 @@
     overflow: hidden;
 }
 .bannerImg{
+    width: 100%;
     display: inline-block;
     height: 100%;
     border-radius: 4px;
@@ -166,7 +166,7 @@ button{
 @media (min-width: 1200px){
     .container{
         padding: 0 12px;
-        box-sizing: content-box;
+        box-sizing: border-box;
     }
     .Information{
         animation: 4s ease-in-out;
