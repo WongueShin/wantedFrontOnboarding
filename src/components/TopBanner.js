@@ -4,7 +4,7 @@ import "./TopBanner.css"
 function Banners(props){
     const contentList = props.content;
     const containerRef = props.refs;
-    let continerWidth = `${window.innerWidth - 80}px`;
+    let continerWidth = window.innerWidth - 80 > 1060? `1060px`:`${window.innerWidth - 80}px`;
     
     return(
         <div className="not-slick-slider">

@@ -1,3 +1,7 @@
+.TopBanner{
+  position: relative;
+  overflow: hidden;
+}
 .MainBar_className{
   width: 100%;
   padding-right: initial;
@@ -298,6 +302,12 @@ ul{
   }
 }
 @media (min-width: 1200px){
+  main{
+    padding-top: 20px;
+  }
+  .TopBanner{
+    height: auto;
+  }
   .MainBar_margin{
     margin: 0 auto;
     height: 50px;
