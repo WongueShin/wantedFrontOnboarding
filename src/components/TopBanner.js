@@ -4,11 +4,13 @@ import "./TopBanner.css"
 function Banners(props){
     const contentList = props.content;
     const containerRef = props.refs;
+    let continerWidth = `${window.innerWidth - 80}px`;
+    
     return(
         <div className="not-slick-slider">
             <div className="not-slick-list" >
                 <div className="track" ref={containerRef}>
-                <div key={-2} className="container last-idx">
+                <div key={-2} className="container last-idx" style={{width: continerWidth}}>
                             <div>
                                 <div className="imgDiv">
                                 <img className="bannerImg" src={contentList[contentList.length - 2].imgpath}/>
@@ -30,7 +32,7 @@ function Banners(props){
                                 </div>
                             </div>
                     </div>
-                    <div key={-1} className="container last-idx">
+                    <div key={-1} className="container last-idx" style={{width: continerWidth}}>
                             <div>
                                 <div className="imgDiv">
                                 <img className="bannerImg" src={contentList[contentList.length - 1].imgpath}/>
@@ -53,7 +55,7 @@ function Banners(props){
                             </div>
                     </div>        
                     {contentList.map((content, index)=>
-                        <div key={index} className={"container"}>
+                        <div key={index} className={"container"} style={{width: continerWidth}}>
                             <div>
                                 <div className="imgDiv">
                                 <img className="bannerImg" src={content.imgpath}/>
@@ -76,7 +78,7 @@ function Banners(props){
                             </div>
                         </div>
                     )}
-                    <div key={contentList.length} className="container first-idx">
+                    <div key={contentList.length} className="container first-idx" style={{width: continerWidth}}>
                             <div>
                                 <div className="imgDiv">
                                 <img className="bannerImg" src={contentList[0].imgpath}/>
@@ -98,7 +100,7 @@ function Banners(props){
                                 </div>
                             </div>
                     </div>
-                    <div key={contentList.length + 1} className="container first-idx">
+                    <div key={contentList.length + 1} className="container first-idx style={{width: continerWidth}}">
                             <div>
                                 <div className="imgDiv">
                                 <img className="bannerImg" src={contentList[1].imgpath}/>
@@ -200,7 +202,6 @@ function TopBanner(props) {
     }
     const mouseEnd = (e) => {
         const distanceX = Math.abs(touchPosion.x - e.pageX);
-        console.log(touchPosion.x, e.pageX);
         if(distanceX > 50){
             if((touchPosion.x - e.pageX) > 0){
                 NextSlide();
