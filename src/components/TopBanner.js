@@ -18,6 +18,7 @@ function Banners(props){
                                 <div className='Information'>
                                     <h2>{contentList[contentList.length - 2].h2}</h2>
                                     <h3>{contentList[contentList.length - 2].h3}</h3>
+                                    <hr className="Divider"></hr>
                                     <a className='button_Information'>
                                         <span className='button_span'>바로가기
                                         <span className="Button_Button__endIcon__MpDfc">
@@ -40,6 +41,7 @@ function Banners(props){
                                 <div className='Information'>
                                     <h2>{contentList[contentList.length - 1].h2}</h2>
                                     <h3>{contentList[contentList.length - 1].h3}</h3>
+                                    <hr className="Divider"></hr>
                                     <a className='button_Information'>
                                         <span className='button_span'>바로가기
                                         <span className="Button_Button__endIcon__MpDfc">
@@ -63,6 +65,7 @@ function Banners(props){
                                 <div className='Information'>
                                     <h2>{content.h2}</h2>
                                     <h3>{content.h3}</h3>
+                                    <hr className="Divider"></hr>
                                     <a className='button_Information'>
                                         <span className='button_span'>바로가기
                                         <span className="Button_Button__endIcon__MpDfc">
@@ -86,6 +89,7 @@ function Banners(props){
                                 <div className='Information'>
                                     <h2>{contentList[0].h2}</h2>
                                     <h3>{contentList[0].h3}</h3>
+                                    <hr className="Divider"></hr>
                                     <a className='button_Information'>
                                         <span className='button_span'>바로가기
                                         <span className="Button_Button__endIcon__MpDfc">
@@ -108,6 +112,7 @@ function Banners(props){
                                 <div className='Information'>
                                     <h2>{contentList[1].h2}</h2>
                                     <h3>{contentList[1].h3}</h3>
+                                    <hr className="Divider"></hr>
                                     <a className='button_Information'>
                                         <span className='button_span'>바로가기
                                         <span className="Button_Button__endIcon__MpDfc">
